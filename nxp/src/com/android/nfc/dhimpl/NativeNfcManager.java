@@ -172,7 +172,7 @@ public class NativeNfcManager implements DeviceHost {
     }
 
     @Override
-    public boolean routeAid(byte[] aid, int route, int aidInfo) {
+    public boolean routeAid(byte[] aid, int route, int aidInfo, int power) {
         return false;
     }
 
@@ -368,6 +368,18 @@ public class NativeNfcManager implements DeviceHost {
     @Override
     public String getNfaStorageDir() {
         return mContext.getFilesDir().getAbsolutePath();
+    }
+
+    private native void doStartStopPolling(boolean start);
+    @Override
+    public void startStopPolling(boolean start) {
+        doStartStopPolling(start);
+    }
+
+    private native void doSetNfceePowerAndLinkCtrl(boolean enable);
+    @Override
+    public void setNfceePowerAndLinkCtrl(boolean enable) {
+        doSetNfceePowerAndLinkCtrl(enable);
     }
 
     private native void doSetP2pInitiatorModes(int modes);

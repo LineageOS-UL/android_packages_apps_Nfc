@@ -2354,6 +2354,14 @@ static void com_android_nfc_NfcManager_doShutdown(JNIEnv*, jobject)
 {
 }
 
+static void com_android_nfc_NfcManager_doStartStopPolling(JNIEnv*, jobject, jboolean)
+{
+}
+
+static void com_android_nfc_NfcManager_doSetNfceePowerAndLinkCtrl(JNIEnv*, jobject, jboolean)
+{
+}
+
 /*
  * JNI registration.
  */
@@ -2428,7 +2436,11 @@ static JNINativeMethod gMethods[] =
    {"doFactoryReset", "()V",
       (void *)com_android_nfc_NfcManager_doFactoryReset},
    {"doShutdown", "()V",
-      (void *)com_android_nfc_NfcManager_doShutdown}
+      (void *)com_android_nfc_NfcManager_doShutdown},
+    {"doStartStopPolling", "(Z)V",
+      (void *)com_android_nfc_NfcManager_doStartStopPolling},
+    {"doSetNfceePowerAndLinkCtrl", "(Z)V",
+      (void *)com_android_nfc_NfcManager_doSetNfceePowerAndLinkCtrl}
 };
 
 

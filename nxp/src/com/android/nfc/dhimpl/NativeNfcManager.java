@@ -382,6 +382,12 @@ public class NativeNfcManager implements DeviceHost {
         doSetNfceePowerAndLinkCtrl(enable);
     }
 
+    @Override
+    public native byte[] getRoutingTable();
+
+    @Override
+    public native int getMaxRoutingTableSize();
+
     private native void doSetP2pInitiatorModes(int modes);
     @Override
     public void setP2pInitiatorModes(int modes) {

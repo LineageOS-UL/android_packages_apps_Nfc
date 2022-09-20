@@ -2362,6 +2362,41 @@ static void com_android_nfc_NfcManager_doSetNfceePowerAndLinkCtrl(JNIEnv*, jobje
 {
 }
 
+/*******************************************************************************
+**
+** Function:        nfcManager_doGetMaxRoutingTableSize
+**
+** Description:     Retrieve the max routing table size from cache
+**                  e: JVM environment.
+**                  o: Java object.
+**
+** Returns:         Max Routing Table size
+**
+*******************************************************************************/
+static jint com_android_nfc_NfcManager_doGetMaxRoutingTableSize(JNIEnv* e, jobject o) {
+  (void)e;
+  (void)o;
+  return 0;
+}
+
+/*******************************************************************************
+**
+** Function:        nfcManager_doGetRoutingTable
+**
+** Description:     Retrieve the committed listen mode routing configuration
+**                  e: JVM environment.
+**                  o: Java object.
+**
+** Returns:         Committed listen mode routing configuration
+**
+*******************************************************************************/
+static jbyteArray com_android_nfc_NfcManager_doGetRoutingTable(JNIEnv* e, jobject o) {
+  (void)e;
+  (void)o;
+  jbyteArray rtJavaArray = e->NewByteArray(0);
+  return rtJavaArray;
+}
+
 /*
  * JNI registration.
  */
@@ -2440,7 +2475,12 @@ static JNINativeMethod gMethods[] =
     {"doStartStopPolling", "(Z)V",
       (void *)com_android_nfc_NfcManager_doStartStopPolling},
     {"doSetNfceePowerAndLinkCtrl", "(Z)V",
-      (void *)com_android_nfc_NfcManager_doSetNfceePowerAndLinkCtrl}
+      (void *)com_android_nfc_NfcManager_doSetNfceePowerAndLinkCtrl},
+
+    {"getRoutingTable", "()[B", (void*)com_android_nfc_NfcManager_doGetRoutingTable},
+
+    {"getMaxRoutingTableSize", "()I",
+     (void*)com_android_nfc_NfcManager_doGetMaxRoutingTableSize},
 };
 
 

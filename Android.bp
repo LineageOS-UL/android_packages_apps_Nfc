@@ -13,7 +13,10 @@ android_app {
     platform_apis: true,
     certificate: "platform",
     jni_libs: ["libnfc_nci_jni"],
-    static_libs: ["androidx.legacy_legacy-support-v4"],
+    static_libs: [
+        "androidx.legacy_legacy-support-v4",
+        "com.google.android.material_material",
+    ],
     optimize: {
         enabled: false,
     },
